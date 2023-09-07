@@ -20,21 +20,8 @@
         <va-navbar-item class="mr-4">
           <va-slider v-if="robotEnabled" style="min-width: 150px;" label="Robot speed" v-model="robotSpeed" color="success"/>
         </va-navbar-item>
-        <va-navbar-item class="mr-4" v-show="!isEditingPrinter">
-          <va-button :rounded="false" color="info" @click="printerChange" >
-            {{ getPrinterButtonLabel }}
-          </va-button>
-        </va-navbar-item>
-        <!-- Edit printer IP -->
-        <va-navbar-item v-show="isEditingPrinter">
-          <va-input
-            v-model="printerIPaddress"
-            placeholder="Printer IP address"
-          />
-        </va-navbar-item>
-        <va-navbar-item class="mr-4" v-show="isEditingPrinter">
-          <va-button :rounded="false" color="info" @click="printerSaveChange" >
-            Save
+        <va-navbar-item class="mr-4" v-show="true">
+          <va-button :rounded="false" color="info">
           </va-button>
         </va-navbar-item>
 
@@ -68,7 +55,6 @@
 
 import IoT from '@/components/IoT'
 import OrderSelector from '@/components/OrderSelector'
-import Printing from '@/components/Printing'
 import Authentication from '@/components/Auth'
 
 import { Auth } from 'aws-amplify'
@@ -82,7 +68,6 @@ export default {
   components: {
     IoT,
     OrderSelector,
-    Printing,
     Authentication
   },
   data() {
@@ -96,9 +81,6 @@ export default {
       isStoreOpen: false,
       isStoreChangingState: false,
 
-      // Edit printer toggle
-      isEditingPrinter: false,
-      printerIPaddress: undefined,
 
       // Robot status
       robotEnabled: false,
@@ -112,10 +94,6 @@ export default {
       console.log('getStoreStateButtonLabel: ', this.isStoreOpen, label)
       return label
     },
-    getPrinterButtonLabel: function () {
-      const label = 'Printer: ' + (this.printerIPaddress || 'None')
-      return label
-    }
   },
   methods: {
     async toggleRobot () {
@@ -152,15 +130,6 @@ export default {
         console.error("Cannot change state: ", err)
         this.isStoreChangingState = false
       }
-    },
-    printerChange () {
-      console.log('printerChange start')
-      this.isEditingPrinter = true
-    },
-    printerSaveChange () {
-      console.log('printerSaveChange: ', this.printerIPaddress)
-      localStorage.printerIPaddress = this.printerIPaddress
-      this.isEditingPrinter = false
     },
     // Get application config
     async getConfig () {
@@ -213,9 +182,6 @@ export default {
       that.isStoreChangingState = false
     })
 
-    // Get printer IP from local storage
-    this.printerIPaddress = localStorage.printerIPaddress
-    console.log('printerIPaddress: ', this.printerIPaddress)
   }
 }
 </script>

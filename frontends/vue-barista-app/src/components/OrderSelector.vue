@@ -365,9 +365,9 @@ export default {
           this.orders[i].isMoving = (action === 'make') ? true: false
 
           // Send ticket to printer if making
-          if (action === 'make') {
-            this.emitter.emit('printOrder', this.orders[i])
-          }
+          //if (action === 'make') {
+          //  this.emitter.emit('printOrder', this.orders[i])
+          //}
           break
         }
       }
