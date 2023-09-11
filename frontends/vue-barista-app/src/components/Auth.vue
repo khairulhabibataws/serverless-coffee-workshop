@@ -111,7 +111,7 @@ export default {
     },
     inputPhone (_, phoneObject) {
       if (phoneObject && phoneObject.number && this.isValid) {
-        this.phone = phoneObject?.number
+        this.phone = phoneObject.number
       }
     },
     resetForm () {
