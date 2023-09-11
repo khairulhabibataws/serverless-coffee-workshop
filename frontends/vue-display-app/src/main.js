@@ -69,9 +69,9 @@ if (localStorage.UIstate) {
 
   app.config.globalProperties.$ordersAPIurl = 'https://en0zvine6g.execute-api.ap-southeast-1.amazonaws.com/Prod/'
   app.config.globalProperties.$APIconfigURL = 'https://4rkb07gzf1.execute-api.ap-southeast-1.amazonaws.com/Prod/'
-  app.config.globalProperties.$poolId = 'ap-southeast-1_WpLE8AlIr'
+  app.config.globalProperties.$poolId = 'ap-southeast-1:01c4c338-5d62-4be8-9a6c-7e750390ff97'
   app.config.globalProperties.$ConfigEndpoint = 'https://4rkb07gzf1.execute-api.ap-southeast-1.amazonaws.com/Prod/config',
-  app.config.globalProperties.$host = '446dboc3mqtkarht692s56e3oi'
+  app.config.globalProperties.$host = 'a3tw82l7ucghei-ats.iot.ap-southeast-1.amazonaws.com'
 }
 
 // // Are global vars initialized?
