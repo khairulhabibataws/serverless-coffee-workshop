@@ -250,15 +250,16 @@ export default {
 
         open.data.forEach((order) => {
           let newOrder = {}
+          let drinkOrder = JSON.parse(order.drinkOrder?.S)
           if (order.orderNumber) {
             newOrder = {
               orderId: order.SK.S,
               baristaUserId: order.baristaUserId,
-              orderNumber: order.orderNumber,
+              orderNumber: order.orderNumber.S,
               customerName: '',
               robot: order.robot,
-              orderItemName: order.drinkOrder?.S.drink,
-              modifiers: order.drinkOrder?.S.modifiers,
+              orderItemName: drinkOrder.drink,
+              modifiers: drinkOrder.modifiers,
               startTime: order.TS.N,
               state: 'preview',
               age: 0
@@ -284,7 +285,7 @@ export default {
           if ((Date.now() - order.TS) / 1000 < MAX_AGE_LOADED_ORDERS) {
             this.orders.push({
               orderId: order.SK.S,
-              orderNumber: order.orderNumber,
+              orderNumber: order.orderNumber.S,
               customerName: '',
               robot: order.robot,
               orderItemName: order.drinkOrder?.S.drink,
