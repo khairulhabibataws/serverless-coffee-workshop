@@ -91,8 +91,8 @@ import Auth from '@aws-amplify/auth'
               .then(function (response) {   
                console.log('get the order summary',response.data);
                that.journey =  response.data  
-               that.journey.result.link = that.$journeyServiceURL+that.journey.result.orderId+'.html'
-               that.toaster(that.journey.result.link)
+               let journeyLink = that.$journeyServiceURL+that.journey.orderId+'.html'
+               that.toaster(journeyLink)
                 
               })
               .catch(function (error) {

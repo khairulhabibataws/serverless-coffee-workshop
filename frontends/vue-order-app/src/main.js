@@ -104,7 +104,7 @@ app.config.globalProperties.$APIGWEndpointConfigService = 'https://4rkb07gzf1.ex
 app.config.globalProperties.$ConfigEndpoint = 'https://4rkb07gzf1.execute-api.ap-southeast-1.amazonaws.com/Prod/config'
 
 // ** readonly config store endpoint **
-app.config.globalProperties.$journeyServiceURL = 'https://d1mt6zclpinn6p.cloudfront.net/' 
+app.config.globalProperties.$journeyServiceURL = 'https://dicdvzefvco4f.cloudfront.net/'
 
 
 app.config.globalProperties.emitter = emitter
