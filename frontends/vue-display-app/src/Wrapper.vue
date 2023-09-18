@@ -9,8 +9,6 @@
             style="text-align: center; color:white;"
             class="display-4 mt-4 mb-4"
           >
-            Sign up at
-            <span style="color:#08c18a;">https://s12d.com/coffee</span> then
             Scan the QR Code to start
           </p>
         </va-navbar-item>
