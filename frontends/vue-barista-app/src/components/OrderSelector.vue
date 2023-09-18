@@ -255,7 +255,7 @@ export default {
             newOrder = {
               orderId: order.SK.S,
               baristaUserId: order.baristaUserId,
-              orderNumber: order.orderNumber,
+              orderNumber: order.orderNumber.S,
               customerName: '',
               robot: order.robot,
               orderItemName: drinkOrder.drink,
@@ -285,7 +285,7 @@ export default {
           if ((Date.now() - order.TS) / 1000 < MAX_AGE_LOADED_ORDERS) {
             this.orders.push({
               orderId: order.SK.S,
-              orderNumber: order.orderNumber,
+              orderNumber: order.orderNumber.S,
               customerName: '',
               robot: order.robot,
               orderItemName: order.drinkOrder?.S.drink,
