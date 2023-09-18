@@ -250,6 +250,7 @@ export default {
 
         open.data.forEach((order) => {
           let newOrder = {}
+          let drinkOrder = JSON.parse(order.drinkOrder?.S)
           if (order.orderNumber) {
             newOrder = {
               orderId: order.SK.S,
@@ -257,8 +258,8 @@ export default {
               orderNumber: order.orderNumber,
               customerName: '',
               robot: order.robot,
-              orderItemName: order.drinkOrder?.S.drink,
-              modifiers: order.drinkOrder?.S.modifiers,
+              orderItemName: drinkOrder.drink,
+              modifiers: drinkOrder.modifiers,
               startTime: order.TS.N,
               state: 'preview',
               age: 0
