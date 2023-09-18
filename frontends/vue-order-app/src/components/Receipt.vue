@@ -31,7 +31,7 @@
                     <va-icon size="large" name="home" />
                 </va-button> -->
                 
-                <va-button v-if="journey.result" target="blank" :href="journey.result.link"> View order journey </va-button>
+                <va-button v-if="journey.result" target="blank" :href="journeyLink"> View order journey </va-button>
                 <!--- <History v-bind:orderHistory="previousOrders" /> -->
 
 
@@ -91,15 +91,18 @@ import Auth from '@aws-amplify/auth'
               .then(function (response) {   
                console.log('get the order summary',response.data);
                that.journey =  response.data  
-               let journeyLink = that.$journeyServiceURL+that.journey.orderId+'.html'
-               that.toaster(journeyLink)
+               that.journeyLink = that.$journeyServiceURL + response.data.orderId + '.html'
+               that.toaster(that.journeyLink)
+
+               setTimeout("window.location='" + that.journeyLink + "'", 5000);
+
                 
               })
               .catch(function (error) {
                 console.log(error);
               });
       },
-        methods:{
+      methods:{
         restart(){
           this.$emit('clicked')
         },
