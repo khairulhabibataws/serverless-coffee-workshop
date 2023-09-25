@@ -38,7 +38,6 @@
                         <h2>Your order is being made </h2>
                         <img class="staus animation" src="https://assets.serverlesscoffee.com/images/615-coffee-machine-outline.gif">
                         <va-button icon="lightbulb"   target="blank" to="https://s12d.com/espresso"> Learn </va-button>
-                        <va-button :loading="loading" color="#690080" icon="block" @click="cancelOrderClick(CurrentOrder)"> Cancel order </va-button>
 
                     </div>
 
