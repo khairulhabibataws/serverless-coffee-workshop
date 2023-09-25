@@ -29,8 +29,6 @@
                         <h2>Look out for your order on the big screen </h2>
                         <img class="staus animation" src="https://assets.serverlesscoffee.com/images/1727-change-tv-screen-widescreen-outline.gif">
                         <va-button icon="lightbulb"  target="blank" href="https://s12d.com/espresso"> Learn </va-button>
-                        <va-button :loading="loading" color="#690080" icon="block" @click="cancelOrderClick(CurrentOrder)"> Cancel order </va-button>
-
                     </div>
 
                     <div  v-if=" CurrentOrder.status =='OrderManager.MakeOrder'  ">
